@@ -24,19 +24,23 @@
               <div class="row">
                 <div class="col">
                   {% block menu %}{% endblock %}
+                  <label class="form-control-sm" >-- Policy Name --</label>
                 </div>
                 <div class="col">
                   <input type="text" class="form-control" placeholder="{% block placeholder2 %}{% endblock %}" name="{% block n2 %}{% endblock %}">
+                  <label class="form-control-sm" >-- Project Name --</label>
                 </div>
                   <div class="col">
                   <input type="datetime-local" class="form-control" placeholder="{% block placeholder3 %}{% endblock %}" name="{% block n3 %}{% endblock %}">
+                  <label class="form-control-sm" >-- Start Time --</label>
                 </div>
                   <div class="col">
                   <input type="datetime-local" class="form-control" placeholder="{% block placeholder4 %}{% endblock %}" name="{% block n4 %}{% endblock %}">
+                  <label class="form-control-sm" >-- End Time --</label>
                 </div>
                 <div class="col">
                   <input type="file" class="form-control" placeholder="{% block placeholder5 %}{% endblock %}" name="{% block n5 %}{% endblock %}">
-                  <label style="margin-left:15%">Service Account Key File</label>
+                  <label class="form-control-sm" >-- Key File --</label>
                 </div>
                 <div class="col">
                   <button type="submit" name="submit" class="btn btn btn-dark" style="width:100px">Submit</button>
