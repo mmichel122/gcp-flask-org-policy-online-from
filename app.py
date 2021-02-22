@@ -15,6 +15,7 @@ app.config['UPLOAD_PATH'] = '/tmp'
 
 sa_email_address = "mm-demo-test-org-sa@skyuk-cec-org-policy-demo-mm.iam.gserviceaccount.com"
 gw_service_name = "skyuk-cec-org-policy-demo-mm"
+gw_url = "https://org-policy-management-gw-54tubeme.ew.gateway.dev/policy"
 
 
 class Form(FlaskForm):
@@ -29,7 +30,7 @@ def home():
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = Form()
-    form.constraints.choices = [prj for prj in list_policies()]
+    form.constraints.choices = [prj for prj in list_policies(project=gw_service_name)]
     if request.method == 'GET':
         return render_template('index.html', form=form)
     else:
@@ -47,7 +48,7 @@ def index():
                     'Authorization': f"Bearer {access_token}",
                     'Accept': 'application/json'
                 }
-                publish = requests.post(url="https://org-policy-management-gw-54tubeme.ew.gateway.dev/policy",
+                publish = requests.post(url=gw_url,
                                         headers=headers, json=body)
                 response = publish.json()
                 os.remove(os.path.abspath(f'/tmp/{filename}'))
