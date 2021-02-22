@@ -11,7 +11,7 @@ from orgPolicies import list_policies
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
-app.config['UPLOAD_PATH'] = 'uploads'
+app.config['UPLOAD_PATH'] = '/tmp'
 
 sa_email_address = "mm-demo-test-org-sa@skyuk-cec-org-policy-demo-mm.iam.gserviceaccount.com"
 gw_service_name = "skyuk-cec-org-policy-demo-mm"
@@ -37,7 +37,7 @@ def index():
             uploaded_file = request.files['json_file']
             filename = secure_filename(uploaded_file.filename)
             uploaded_file.save(os.path.join(app.config['UPLOAD_PATH'], filename))
-            json_path = os.path.abspath(f'uploads/{filename}')
+            json_path = os.path.abspath(f'/tmp/{filename}')
             try:
                 access_token = generate_jwt(sa_keyfile=json_path, sa_email=sa_email_address,
                                             audience=gw_service_name)
@@ -50,7 +50,7 @@ def index():
                 publish = requests.post(url="https://org-policy-management-gw-54tubeme.ew.gateway.dev/policy",
                                         headers=headers, json=body)
                 response = publish.json()
-                os.remove(os.path.abspath(f'uploads/{filename}'))
+                os.remove(os.path.abspath(f'/tmp/{filename}'))
                 print(response)
                 return render_template('index.html', form=form,
                                        content=f"the project {request.form.to_dict()['project']} has been added to "

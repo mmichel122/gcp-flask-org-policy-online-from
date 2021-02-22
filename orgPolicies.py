@@ -9,7 +9,7 @@ def list_policies():
     service = discovery.build('cloudresourcemanager', 'v1', credentials=credentials)
 
     # Name of the resource to list `Constraints` for.
-    resource = 'projects/skyuk-uk-mikaelmichelier-poc'  # TODO: Update placeholder value.
+    resource = 'projects/skyuk-cec-org-policy-demo-mm'  # TODO: Update placeholder value.
     constraints = []
 
     list_available_org_policy_constraints_request_body = {
