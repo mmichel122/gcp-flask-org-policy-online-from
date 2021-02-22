@@ -53,13 +53,10 @@ def index():
                 response = publish.json()
                 os.remove(os.path.abspath(f'/tmp/{filename}'))
                 print(response)
-                return render_template('index.html', form=form,
-                                       content=f"the project {request.form.to_dict()['project']} has been added to "
-                                               f"the constraint {request.form.to_dict()['constraints']} - {response}...")
+                return render_template('index.html', form=form, content=f"{response}...")
             except Exception as e:
                 print(e)
-                return render_template('index.html', form=form,
-                                       content=f"Error - {e}...")
+                return render_template('index.html', form=form, content=f"Error - {e}...")
 
 
 if __name__ == "__main__":
