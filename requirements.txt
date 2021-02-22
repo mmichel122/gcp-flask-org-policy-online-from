@@ -1,0 +1,7 @@
+flask
+Flask-WTF
+flask_table
+flask-bootstrap
+google-auth
+google-api-python-client
+Werkzeug

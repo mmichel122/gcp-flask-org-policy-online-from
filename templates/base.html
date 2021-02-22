@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-right:3%; margin-left:3%">
+          <a class="navbar-brand" href="{{ url_for( 'index') }}">Demo Form</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          </div>
+            <a class="btn btn-sm btn-outline-secondary" style="display: flex; justify-content: flex-end" href="{{ url_for( 'index') }}">Reset</a>
+        </nav>
+        <div class="shadow p-3 mb-5 bg-white rounded" style="margin-right:3%; margin-left:3%; height: 1000px; background-size:100% 100%;">
+            <br>
+            <h1 class="h5">{% block h1 %}{% endblock %}</h1>
+            {% block content %}
+            {% endblock %}
+            <br>
+            <form action="{% block action %}{% endblock %}" method="POST" enctype="multipart/form-data">
+              <div class="row">
+                <div class="col">
+                  {% block menu %}{% endblock %}
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="{% block placeholder2 %}{% endblock %}" name="{% block n2 %}{% endblock %}">
+                </div>
+                  <div class="col">
+                  <input type="datetime-local" class="form-control" placeholder="{% block placeholder3 %}{% endblock %}" name="{% block n3 %}{% endblock %}">
+                </div>
+                  <div class="col">
+                  <input type="datetime-local" class="form-control" placeholder="{% block placeholder4 %}{% endblock %}" name="{% block n4 %}{% endblock %}">
+                </div>
+                <div class="col">
+                  <input type="file" class="form-control" placeholder="{% block placeholder5 %}{% endblock %}" name="{% block n5 %}{% endblock %}">
+                  <label style="margin-left:15%">Service Account Key File</label>
+                </div>
+                <div class="col">
+                  <button type="submit" name="submit" class="btn btn btn-dark" style="width:100px">Submit</button>
+                </div>
+              </div>
+            </form>
+        </div>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+          </div>
+        </div>
+    </body>
+</html>

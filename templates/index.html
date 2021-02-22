@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block h1 %}Details:{% endblock %}
+
+{% block content %}{{ content }}{% endblock %}
+
+{% block action %}
+index
+{% endblock %}
+
+{% block menu %}
+{{ form.constraints(class="form-control") }}
+{% endblock %}
+
+{% block n2 %}project{% endblock %}
+{% block placeholder2 %}Enter The Project Id{% endblock %}
+
+{% block n3 %}start{% endblock %}
+{% block placeholder3 %}Start Time{% endblock %}
+
+{% block n4 %}end{% endblock %}
+{% block placeholder4 %}End Time{% endblock %}
+
+{% block n5 %}json_file{% endblock %}
+{% block placeholder5 %}json file path{% endblock %}
+
