@@ -1,12 +1,9 @@
 from googleapiclient import discovery
-from oauth2client.client import GoogleCredentials
 
 
 def list_policies(project):
 
-    credentials = GoogleCredentials.get_application_default()
-
-    service = discovery.build('cloudresourcemanager', 'v1', credentials=credentials)
+    service = discovery.build('cloudresourcemanager', 'v1', cache_discovery=False)
 
     # Name of the resource to list `Constraints` for.
     resource = f'projects/{project}'  # TODO: Update placeholder value.
