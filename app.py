@@ -37,8 +37,15 @@ def index():
         if 'submit' in request.form:
             uploaded_file = request.files['json_file']
             filename = secure_filename(uploaded_file.filename)
-            uploaded_file.save(os.path.join(app.config['UPLOAD_PATH'], filename))
+
+            try:
+                uploaded_file.save(os.path.join(app.config['UPLOAD_PATH'], filename))
+            except Exception as e:
+                return render_template('index.html', form=form,
+                                       content=f"File Upload Error - {e}...")
+
             json_path = os.path.abspath(f'/tmp/{filename}')
+
             try:
                 access_token = generate_jwt(sa_keyfile=json_path, sa_email=sa_email_address,
                                             audience=gw_service_name)
@@ -54,6 +61,7 @@ def index():
                 os.remove(os.path.abspath(f'/tmp/{filename}'))
                 print(response)
                 return render_template('index.html', form=form, content=f"{response}...")
+
             except Exception as e:
                 print(e)
                 return render_template('index.html', form=form, content=f"Error - {e}...")
