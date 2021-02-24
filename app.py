@@ -15,7 +15,7 @@ app.config['UPLOAD_PATH'] = '/tmp'
 
 sa_email_address = "api-gw-policy-sa@uk-cec-org-policy-prod.iam.gserviceaccount.com"
 gw_service_name = "uk-cec-org-policy-prod"
-gw_url = "https://org-policy-management-gw-54tubeme.ew.gateway.dev/policy"
+gw_url = "https://org-policy-management-gw-5640wtvc.ew.gateway.dev/policy"
 
 
 class Form(FlaskForm):
