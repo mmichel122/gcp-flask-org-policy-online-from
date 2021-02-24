@@ -13,8 +13,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 app.config['UPLOAD_PATH'] = '/tmp'
 
-sa_email_address = "mm-demo-test-org-sa@skyuk-cec-org-policy-demo-mm.iam.gserviceaccount.com"
-gw_service_name = "skyuk-cec-org-policy-demo-mm"
+sa_email_address = "api-gw-policy-sa@uk-cec-org-policy-prod.iam.gserviceaccount.com"
+gw_service_name = "uk-cec-org-policy-prod"
 gw_url = "https://org-policy-management-gw-54tubeme.ew.gateway.dev/policy"
 
 
